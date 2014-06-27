@@ -6,6 +6,7 @@ import (
 
 	"github.com/conformal/btcec"
 	"github.com/conformal/btcutil"
+	"github.com/conformal/btcnet"
 )
 
 func main() {
@@ -30,8 +31,8 @@ func main() {
 		_, public := btcec.PrivKeyFromBytes(btcec.S256(), padded)
 
 		// Get compressed and uncompressed addresses
-		caddr, _ := btcutil.NewAddressPubKey(public.SerializeCompressed(), 0xd9b4bef9)
-		uaddr, _ := btcutil.NewAddressPubKey(public.SerializeUncompressed(), 0xd9b4bef9)
+		caddr, _ := btcutil.NewAddressPubKey(public.SerializeCompressed(), &btcnet.MainNetParams)
+		uaddr, _ := btcutil.NewAddressPubKey(public.SerializeUncompressed(), &btcnet.MainNetParams)
 
 		// Print keys
 		fmt.Printf("%x %34s %34s\n", padded, uaddr.EncodeAddress(), caddr.EncodeAddress())
