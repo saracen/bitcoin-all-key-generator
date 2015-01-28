@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/conformal/btcec"
-	"github.com/conformal/btcutil"
-	"github.com/conformal/btcnet"
+	"github.com/btcsuite/btcec"
+	"github.com/btcsuite/btcutil"
+	"github.com/btcsuite/btcnet"
 )
 
 func main() {
