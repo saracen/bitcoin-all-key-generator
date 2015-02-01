@@ -7,7 +7,7 @@ bitcoin-all-key-generator
 
 ##### Install dependencies:
 ```bash
-$ go get github.com/conformal/btcutil
+$ go get github.com/btcsuite/btcutil
 ```
 
 ##### Run:
