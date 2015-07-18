@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"math/big"
 
-	"github.com/btcsuite/btcec"
 	"github.com/btcsuite/btcutil"
-	"github.com/btcsuite/btcnet"
+	"github.com/btcsuite/btcd/btcec"
+	"github.com/btcsuite/btcd/chaincfg"
 )
 
 func main() {
@@ -31,8 +31,8 @@ func main() {
 		_, public := btcec.PrivKeyFromBytes(btcec.S256(), padded)
 
 		// Get compressed and uncompressed addresses
-		caddr, _ := btcutil.NewAddressPubKey(public.SerializeCompressed(), &btcnet.MainNetParams)
-		uaddr, _ := btcutil.NewAddressPubKey(public.SerializeUncompressed(), &btcnet.MainNetParams)
+		caddr, _ := btcutil.NewAddressPubKey(public.SerializeCompressed(), &chaincfg.MainNetParams)
+		uaddr, _ := btcutil.NewAddressPubKey(public.SerializeUncompressed(), &chaincfg.MainNetParams)
 
 		// Print keys
 		fmt.Printf("%x %34s %34s\n", padded, uaddr.EncodeAddress(), caddr.EncodeAddress())
